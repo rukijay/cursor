@@ -35,18 +35,17 @@ class AIChatHistory:
     def get_history(self) -> List[Dict[str, str]]:
         return self.messages
 
-# Create an instance of AIChatHistory
-chat_history = AIChatHistory()
-
 def get_ai_response(prompt, conversation_history, max_retries=3, retry_delay=5):
     for attempt in range(max_retries):
         try:
+            messages = [
+                {"role": "system", "content": sp},
+                *conversation_history,
+                {"role": "user", "content": prompt}
+            ]
             response = client.chat.completions.create(
-                model=GPT_MODEL,  # Use the constant here
-                messages=[
-                    {"role": "system", "content": sp},
-                    {"role": "user", "content": prompt}
-                ]
+                model=GPT_MODEL,
+                messages=messages
             )
             return response.choices[0].message.content
         except openai.RateLimitError:
