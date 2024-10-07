@@ -1,3 +1,15 @@
+:root {
+    --primary-color: #007bff;
+    --primary-hover-color: #0056b3;
+    --secondary-color: #4CAF50;
+    --background-color: #f0f0f0;
+    --chat-background: white;
+    --message-ai-background: #f1f0f0;
+    --border-color: #e0e0e0;
+    --text-color: black;
+    --text-inverse: white;
+}
+
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -6,7 +18,7 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background-color: #f0f0f0;
+    background-color: var(--background-color);
 }
 
 .chat-container {
@@ -18,12 +30,13 @@ body {
 }
 
 .chat-box {
-    background-color: white;
+    background-color: var(--chat-background);
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     display: flex;
     flex-direction: column;
     height: 100%;
+    overflow: hidden; /* Add this to prevent content from overflowing */
 }
 
 #chat-messages {
@@ -35,28 +48,34 @@ body {
 .input-area {
     display: flex;
     padding: 10px;
-    border-top: 1px solid #e0e0e0;
+    border-top: 1px solid var(--border-color);
 }
 
 #user-input {
     flex-grow: 1;
     padding: 10px;
-    border: 1px solid #ccc;
+    border: 1px solid var(--border-color);
     border-radius: 5px;
     margin-right: 10px;
 }
 
-#send-button {
+.button {
     padding: 10px 20px;
-    background-color: #007bff;
-    color: white;
+    background-color: var(--primary-color);
+    color: var(--text-inverse);
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
 }
 
-#send-button:hover {
-    background-color: #0056b3;
+.button:hover {
+    background-color: var(--primary-hover-color);
+}
+
+#send-button {
+    composes: button;
 }
 
 .message {
@@ -67,31 +86,61 @@ body {
 }
 
 .user-message {
-    background-color: #007bff;
-    color: white;
+    background-color: var(--primary-color);
+    color: var(--text-inverse);
     align-self: flex-end;
 }
 
 .ai-message {
-    background-color: #f1f0f0;
-    color: black;
+    background-color: var(--message-ai-background);
+    color: var(--text-color);
     align-self: flex-start;
 }
 
-#ai-response p {
+.ai-message p {
     margin-bottom: 1em;
     line-height: 1.5;
 }
 
-#ai-response ol {
+.ai-message ol {
     padding-left: 2em;
     margin-bottom: 1em;
 }
 
-#ai-response li {
+.ai-message li {
     margin-bottom: 0.5em;
 }
 
-#ai-response strong {
+.ai-message strong {
     font-weight: bold;
+}
+
+.suggestive-button, .done-end-button {
+    composes: button;
+    display: block;
+    width: 100%;
+    margin: 10px 0;
+}
+
+.suggestive-button {
+    background-color: var(--secondary-color);
+}
+
+.done-end-button {
+    padding: 10px 20px;
+    background-color: var(--secondary-color);
+    color: var(--text-inverse);
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+    width: 100%;
+}
+
+.done-end-button:hover {
+    opacity: 0.8;
+}
+
+.suggestive-button:hover, .done-end-button:hover {
+    opacity: 0.8;
 }
