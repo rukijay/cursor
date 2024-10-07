@@ -47,3 +47,34 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 });
+
+function formatAIResponse(response) {
+    // Split the response into paragraphs
+    const paragraphs = response.split('\n');
+    
+    // Format each paragraph
+    const formattedParagraphs = paragraphs.map(p => {
+        // Check if it's a numbered list item
+        if (p.match(/^\d+\. /)) {
+            return `<li>${p.replace(/^\d+\. /, '')}</li>`;
+        }
+        // Check if it's bold text
+        else if (p.includes('**')) {
+            return `<p>${p.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')}</p>`;
+        }
+        // Regular paragraph
+        else {
+            return `<p>${p}</p>`;
+        }
+    });
+    
+    // Wrap list items in an ordered list
+    let formattedResponse = formattedParagraphs.join('');
+    formattedResponse = formattedResponse.replace(/<li>/g, '<ol><li>').replace(/<\/li>(?!<li>)/g, '</li></ol>');
+    
+    return formattedResponse;
+}
+
+// Use this function when displaying the AI response
+const aiResponseElement = document.getElementById('ai-response');
+aiResponseElement.innerHTML = formatAIResponse(aiResponse);

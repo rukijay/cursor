@@ -77,3 +77,21 @@ body {
     color: black;
     align-self: flex-start;
 }
+
+#ai-response p {
+    margin-bottom: 1em;
+    line-height: 1.5;
+}
+
+#ai-response ol {
+    padding-left: 2em;
+    margin-bottom: 1em;
+}
+
+#ai-response li {
+    margin-bottom: 0.5em;
+}
+
+#ai-response strong {
+    font-weight: bold;
+}
