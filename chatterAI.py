@@ -19,6 +19,7 @@ import time
 import openai
 from openai import OpenAI
 
+
 client = OpenAI()
 
 from typing import List, Dict
