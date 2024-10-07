@@ -1,0 +1,10 @@
+[
+  {
+    "content": "hi",
+    "isUser": true
+  },
+  {
+    "content": "Hello! How can I assist you with your exam preparation today?",
+    "isUser": false
+  }
+]
