@@ -6,6 +6,9 @@ from openai import OpenAI
 
 client = OpenAI()
 
+# Define the model as a constant
+GPT_MODEL = "gpt-4-0125-preview"
+
 # Load TOC from a separate file
 json_file_path = 'toc.json'
 if os.path.exists(json_file_path) and os.path.getsize(json_file_path) > 0:
@@ -18,9 +21,7 @@ else:
 import time
 import openai
 from openai import OpenAI
-
-
-client = OpenAI()
+import datetime
 
 from typing import List, Dict
 
@@ -41,7 +42,7 @@ def get_ai_response(prompt, conversation_history, max_retries=3, retry_delay=5):
     for attempt in range(max_retries):
         try:
             response = client.chat.completions.create(
-                model="gpt-4",
+                model=GPT_MODEL,  # Use the constant here
                 messages=[
                     {"role": "system", "content": sp},
                     {"role": "user", "content": prompt}
@@ -87,7 +88,7 @@ def chatbot():
 
         # Make the API call with the updated messages
         response = client.chat.completions.create(
-            model="gpt-3.5-turbo",
+            model=GPT_MODEL,  # Use the constant here
             messages=messages
         )
 
@@ -97,6 +98,19 @@ def chatbot():
         chat_history.add_message("assistant", ai_response)
 
         print("AI:", ai_response)
+
+    # Log chat history to file
+    log_chat_history(chat_history.get_history())
+
+def log_chat_history(history):
+    timestamp = datetime.datetime.now().strftime("%Y%m%d_%H%M%S")
+    filename = f"chatlog{timestamp}.txt"
+    
+    with open(filename, 'w', encoding='utf-8') as f:
+        for message in history:
+            f.write(f"{message['role'].capitalize()}: {message['content']}\n\n")
+    
+    print(f"Chat history has been saved to {filename}")
 
 if __name__ == "__main__":
     chatbot()
