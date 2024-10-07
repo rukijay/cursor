@@ -2,6 +2,7 @@
     --primary-color: #007bff;
     --primary-hover-color: #0056b3;
     --secondary-color: #4CAF50;
+    --secondary-hover-color: #45a049;
     --background-color: #f0f0f0;
     --chat-background: white;
     --message-ai-background: #f1f0f0;
@@ -36,7 +37,7 @@ body {
     display: flex;
     flex-direction: column;
     height: 100%;
-    overflow: hidden; /* Add this to prevent content from overflowing */
+    overflow: hidden;
 }
 
 #chat-messages {
@@ -61,21 +62,31 @@ body {
 
 .button {
     padding: 10px 20px;
-    background-color: var(--primary-color);
     color: var(--text-inverse);
     border: none;
-    border-radius: 5px;
+    border-radius: 25px; /* Capsule shape */
     cursor: pointer;
     font-size: 16px;
     transition: background-color 0.3s ease;
 }
 
-.button:hover {
+#send-button {
+    background-color: var(--primary-color);
+}
+
+#send-button:hover {
     background-color: var(--primary-hover-color);
 }
 
-#send-button {
-    composes: button;
+.suggestive-button, .done-end-button {
+    display: block;
+    width: 100%;
+    margin: 10px 0;
+    background-color: var(--secondary-color);
+}
+
+.suggestive-button:hover, .done-end-button:hover {
+    background-color: var(--secondary-hover-color);
 }
 
 .message {
@@ -113,34 +124,4 @@ body {
 
 .ai-message strong {
     font-weight: bold;
-}
-
-.suggestive-button, .done-end-button {
-    composes: button;
-    display: block;
-    width: 100%;
-    margin: 10px 0;
-}
-
-.suggestive-button {
-    background-color: var(--secondary-color);
-}
-
-.done-end-button {
-    padding: 10px 20px;
-    background-color: var(--secondary-color);
-    color: var(--text-inverse);
-    border: none;
-    cursor: pointer;
-    font-size: 16px;
-    transition: background-color 0.3s ease;
-    width: 100%;
-}
-
-.done-end-button:hover {
-    opacity: 0.8;
-}
-
-.suggestive-button:hover, .done-end-button:hover {
-    opacity: 0.8;
 }
