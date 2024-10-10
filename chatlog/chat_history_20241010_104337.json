@@ -1,0 +1,18 @@
+[
+  {
+    "role": "user",
+    "content": "hi"
+  },
+  {
+    "role": "assistant",
+    "content": "Hello! How can I assist you today with preparing your mock exam or preparatory exam?"
+  },
+  {
+    "role": "user",
+    "content": "2 questrions"
+  },
+  {
+    "role": "assistant",
+    "content": "Sure, I can help with that. Let's start by gathering some details to ensure the questions fit your needs. Could you please provide me with the following information for each question:\n\n1. The chapters and specific sections to be covered.\n2. The learning objectives associated with these chapters and sections.\n\nOnce I have this information, I'll be better equipped to help you create the questions."
+  }
+]

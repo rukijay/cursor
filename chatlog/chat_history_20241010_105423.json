@@ -1,0 +1,10 @@
+[
+  {
+    "role": "user",
+    "content": "hi"
+  },
+  {
+    "role": "assistant",
+    "content": "Hello! I'm here to assist you with preparing a mock exam for your students. Let's start by discussing the chapters and sections you'd like to cover in the exam. Could you please provide me with that information?"
+  }
+]

@@ -1,0 +1,26 @@
+[
+  {
+    "role": "user",
+    "content": "Hi"
+  },
+  {
+    "role": "assistant",
+    "content": "Hello! How can I assist you today with your exam preparation?"
+  },
+  {
+    "role": "user",
+    "content": "2 questions"
+  },
+  {
+    "role": "assistant",
+    "content": "Of course! To get started with preparing two questions for your exam, I'll first need some information from you. Here are the steps we’ll follow:\n\n1. **Identify Chapters and Sections**: Please tell me which chapters and specific sections within those chapters you'd like to cover in these questions.\n2. **Confirm Chapters and Sections**: I'll summarize and confirm the list of chapters and sections you've provided to ensure accuracy.\n3. **Learning Objectives**: Share the learning objectives associated with the selected chapters and sections.\n4. **Difficulty Level**: Let me know the desired difficulty level for these questions.\n5. **Selection of Questions**: Based on the provided information, I will select appropriate questions or guide you on how to frame them.\n\nCould you provide the chapters and specific sections you'd like to include in these questions?"
+  },
+  {
+    "role": "user",
+    "content": "exit"
+  },
+  {
+    "role": "assistant",
+    "content": "It seems like there may have been some confusion, or you've changed your mind. If you need help later on or decide to continue with the exam preparation, feel free to reach out. Good luck with your exam preparations, and have a great day!"
+  }
+]

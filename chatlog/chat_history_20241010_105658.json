@@ -1,0 +1,18 @@
+[
+  {
+    "role": "user",
+    "content": "hi"
+  },
+  {
+    "role": "assistant",
+    "content": "Hello! How can I assist you today with exam preparation?"
+  },
+  {
+    "role": "user",
+    "content": "3"
+  },
+  {
+    "role": "assistant",
+    "content": "It seems you've entered a number, but I'm not sure how it relates to your needs for exam preparation. Could you please provide more details? For example, are you looking to cover specific chapters or sections for an upcoming exam? Let's start with that."
+  }
+]
