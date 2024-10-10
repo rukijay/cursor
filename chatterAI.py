@@ -68,7 +68,8 @@ class ChatSession:
             try:
                 response = client.chat.completions.create(
                     model=GPT_MODEL,
-                    messages=messages
+                    messages=messages,
+                    max_tokens=200  # Limit the response to approximately 200 tokens
                 )
                 return response.choices[0].message.content
             except OpenAI.RateLimitError:
