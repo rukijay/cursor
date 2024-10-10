@@ -1,0 +1,18 @@
+[
+  {
+    "role": "user",
+    "content": "hi"
+  },
+  {
+    "role": "assistant",
+    "content": "Hello! How can I assist you with preparing a mock exam or preparatory exam today?"
+  },
+  {
+    "role": "user",
+    "content": "2 questions"
+  },
+  {
+    "role": "assistant",
+    "content": "Sure, I can help with that. First, I need to know a few details to ensure we create the best questions for your exam:\n\n1. Which chapters and specific sections would you like these questions to cover?\n2. Could you share the learning objectives associated with these chapters and sections?\n3. What difficulty level do you prefer for these questions?\n\nOnce I have this information, I'll guide you through the process."
+  }
+]

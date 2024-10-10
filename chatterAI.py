@@ -1,29 +1,19 @@
 import os
 import json
-from system_prompt import system_prompt as sp  # or use a different alias if needed
-
-from openai import OpenAI
-
-client = OpenAI()
-
-# Define the model as a constant
-GPT_MODEL = "gpt-4-0125-preview"
-
-# Load TOC from a separate file
-json_file_path = 'toc.json'
-if os.path.exists(json_file_path) and os.path.getsize(json_file_path) > 0:
-    with open(json_file_path, 'r') as f:
-        TOC = json.load(f)
-else:
-    print(f"Error: The file {json_file_path} is either missing or empty.")
-    # Handle the error appropriately
-
 import time
 import openai
 from openai import OpenAI
-import datetime
-
+from datetime import datetime  # Change this line
 from typing import List, Dict
+from system_prompt import system_prompt as sp
+
+# Constants
+GPT_MODEL = "gpt-4-0125-preview"
+JSON_FILE_PATH = 'toc.json'
+MAX_RETRIES = 3
+RETRY_DELAY = 5
+
+client = OpenAI()
 
 class AIChatHistory:
     def __init__(self):
@@ -35,8 +25,15 @@ class AIChatHistory:
     def get_history(self) -> List[Dict[str, str]]:
         return self.messages
 
-def get_ai_response(prompt, conversation_history, max_retries=3, retry_delay=5):
-    for attempt in range(max_retries):
+def load_toc():
+    if os.path.exists(JSON_FILE_PATH) and os.path.getsize(JSON_FILE_PATH) > 0:
+        with open(JSON_FILE_PATH, 'r') as f:
+            return json.load(f)
+    print(f"Error: The file {JSON_FILE_PATH} is either missing or empty.")
+    return None
+
+def get_ai_response(prompt, conversation_history):
+    for attempt in range(MAX_RETRIES):
         try:
             messages = [
                 {"role": "system", "content": sp},
@@ -49,67 +46,46 @@ def get_ai_response(prompt, conversation_history, max_retries=3, retry_delay=5):
             )
             return response.choices[0].message.content
         except openai.RateLimitError:
-            if attempt < max_retries - 1:
-                print(f"Rate limit reached. Retrying in {retry_delay} seconds...")
-                time.sleep(retry_delay)
+            if attempt < MAX_RETRIES - 1:
+                print(f"Rate limit reached. Retrying in {RETRY_DELAY} seconds...")
+                time.sleep(RETRY_DELAY)
             else:
                 return "I'm sorry, but I'm currently experiencing high traffic. Please try again later."
         except openai.APIError as e:
-            if attempt < max_retries - 1:
-                print(f"API error occurred. Retrying in {retry_delay} seconds...")
-                time.sleep(retry_delay)
+            if attempt < MAX_RETRIES - 1:
+                print(f"API error occurred. Retrying in {RETRY_DELAY} seconds...")
+                time.sleep(RETRY_DELAY)
             else:
                 return f"An API error occurred: {str(e)}"
         except Exception as e:
             return f"An unexpected error occurred: {str(e)}"
 
-def chatbot():
-    # Clear the screen before starting the conversation
-    os.system('cls' if os.name == 'nt' else 'clear')
+def log_chat_history(chat_history):
+    timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
     
-    print("AI Chatbot: Hello! How can I assist you today? (Type 'quit' to exit)")
+    # Create the chatlog directory if it doesn't exist
+    chatlog_dir = "chatlog"
+    os.makedirs(chatlog_dir, exist_ok=True)
     
-    conversation_history = []
+    filename = f"chat_history_{timestamp}.json"
+    filepath = os.path.join(chatlog_dir, filename)
     
-    while True:
-        user_input = input("You: ")
-        if user_input.lower() in ['quit', 'exit', 'bye']:
-            break
-
-        # Add user message to history
-        chat_history.add_message("user", user_input)
-
-        # Prepare the messages for the API call
-        messages = [
-            {"role": "system", "content": sp},
-            *chat_history.get_history()
-        ]
-
-        # Make the API call with the updated messages
-        response = client.chat.completions.create(
-            model=GPT_MODEL,  # Use the constant here
-            messages=messages
-        )
-
-        ai_response = response.choices[0].message.content
-
-        # Add AI response to history
-        chat_history.add_message("assistant", ai_response)
-
-        print("AI:", ai_response)
-
-    # Log chat history to file
-    log_chat_history(chat_history.get_history())
-
-def log_chat_history(history):
-    timestamp = datetime.datetime.now().strftime("%Y%m%d_%H%M%S")
-    filename = f"chatlog{timestamp}.txt"
+    # Convert chat history to a list of dictionaries if it's not already
+    chat_log = []
+    for entry in chat_history:
+        if isinstance(entry, dict):
+            chat_log.append(entry)
+        else:
+            chat_log.append({
+                "role": entry.role if hasattr(entry, 'role') else str(type(entry)),
+                "content": entry.content if hasattr(entry, 'content') else str(entry)
+            })
     
-    with open(filename, 'w', encoding='utf-8') as f:
-        for message in history:
-            f.write(f"{message['role'].capitalize()}: {message['content']}\n\n")
+    # Write the chat log to a JSON file in the chatlog folder
+    with open(filepath, 'w', encoding='utf-8') as f:
+        json.dump(chat_log, f, ensure_ascii=False, indent=2)
     
-    print(f"Chat history has been saved to {filename}")
+    print(f"Chat history saved to {filepath}")
 
 if __name__ == "__main__":
-    chatbot()
+    TOC = load_toc()

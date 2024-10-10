@@ -1,0 +1,26 @@
+[
+  {
+    "role": "user",
+    "content": "hi"
+  },
+  {
+    "role": "assistant",
+    "content": "Hello! How can I assist you with preparing your mock exam or preparatory exam today?"
+  },
+  {
+    "role": "user",
+    "content": "2 questions pelase"
+  },
+  {
+    "role": "assistant",
+    "content": "Of course! To get started, could you please provide me with the following details for each question you'd like to prepare:\n\n1. The chapter(s) to be covered.\n2. The specific sections within those chapters.\n\nThis way, I can help you create well-structured questions that meet your needs."
+  },
+  {
+    "role": "user",
+    "content": "eixt"
+  },
+  {
+    "role": "assistant",
+    "content": "It seems like there might have been a typo in your message. If you're looking to create questions for an exam, could you please provide the chapters and sections you're focusing on? If you intended something else or need help with a different request, feel free to let me know!"
+  }
+]

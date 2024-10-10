@@ -1,0 +1,10 @@
+[
+  {
+    "content": "hi",
+    "isUser": true
+  },
+  {
+    "content": "Hello! How can I assist you today with your exam preparation needs? If you're looking to create a mock exam, I'm here to help guide you through the process. Let's start by gathering some initial information. Could you please provide the chapters and specific sections within those chapters that you'd like to cover in the exam?",
+    "isUser": false
+  }
+]

@@ -1,0 +1,14 @@
+User: hi
+
+Assistant: Hello! How can I assist you today with your exam preparation needs?
+
+User: yes, 2 questions pl
+
+Assistant: Great! I'm here to help. To get started with preparing your questions, could you please provide me with the following information:
+
+1. The chapters and specific sections within those chapters that you want the questions to cover.
+  
+2. The learning objectives associated with these chapters and sections.
+
+This will ensure the questions are tailored exactly to your requirements.
+
