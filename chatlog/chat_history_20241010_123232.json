@@ -1,0 +1,22 @@
+[
+  {
+    "role": "assistant",
+    "content": "Hi, I'm your AI assistant. Please enter:\n1 for Exam Preparation\n2 for Learning Aids"
+  },
+  {
+    "role": "user",
+    "content": "1"
+  },
+  {
+    "role": "assistant",
+    "content": "You selected Exam Preparation. How can I help you with your exam prep?"
+  },
+  {
+    "role": "user",
+    "content": "two questions from 2.1"
+  },
+  {
+    "role": "assistant",
+    "content": "To assist you effectively, let's plan out our approach for creating these exam questions. Here's what we'll do:\n\n1. We'll start by identifying which chapters and specific sections within those chapters need to be covered. In this case, you've already specified that we're looking at Chapter 2, Section 1.\n  \n2. Next, I'll summarize and confirm the details with you to ensure we're aligned.\n\n3. After that, I'll request the learning objectives associated with Chapter 2, Section 1, to ensure our questions align with the intended educational outcomes.\n\n4. Then, I'll ask you to specify the desired difficulty level of the questions to ensure they meet your expectations.\n\n5. Finally, based on all the provided information, I will select appropriate questions from the TOC document, ensuring they match the learning objectives and difficulty level you specified.\n\nLet's start with step 2 and confirm: You're looking to create two questions from Chapter 2, Section 1, is that correct?"
+  }
+]

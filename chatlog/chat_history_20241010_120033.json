@@ -1,0 +1,18 @@
+[
+  {
+    "role": "user",
+    "content": "hi"
+  },
+  {
+    "role": "assistant",
+    "content": "Hello! How can I assist you with exam preparation today?"
+  },
+  {
+    "role": "user",
+    "content": "2 questions from 2.1"
+  },
+  {
+    "role": "assistant",
+    "content": "To assist you effectively, I'll outline the steps we'll take together:\n\n1. Identify the chapters and specific sections you want to focus on for the exam.\n2. Confirm the list of chapters and sections with you to ensure accuracy.\n3. Request the learning objectives associated with these chapters and sections to align the questions correctly.\n4. Ask for the desired difficulty level of the exam questions.\n5. Based on the provided details, select appropriate questions from our resources.\n\nStarting with step 1: You've mentioned you want questions from section 2.1. To confirm, is there a particular chapter this section falls under, or is \"2\" the chapter number and \"1\" the section within this chapter? Also, are there any specific details or topics within section 2.1 you'd like the questions to focus on?"
+  }
+]

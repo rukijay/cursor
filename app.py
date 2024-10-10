@@ -29,11 +29,14 @@ def process_response(response):
     # Escape HTML characters first
     response = escape(response)
     
+    # Convert Markdown bold (double asterisks) to HTML bold
+    response = re.sub(r'\*\*(.+?)\*\*', r'<strong>\1</strong>', response)
+    
     # Convert Markdown links to HTML
-    response = re.sub(r'\[([^\]]+)\]\(([^\)]+)\)', r'<a href="\2" target="_blank">\1</a>', response)
+    response = re.sub(r'\[([^\]]+)\]\(([^)]+)\)', r'<a href="\2" target="_blank">\1</a>', response)
     
     # Convert plain URLs to clickable links, but avoid already processed links
-    response = re.sub(r'(?<!href=")(https?://\S+)(?!")', r'<a href="\1" target="_blank">\1</a>', response)
+    response = re.sub(r'(?<!href=")(https?://[^\s<>]+)(?![^<>]*>)', r'<a href="\1" target="_blank">\1</a>', response)
     
     # Convert Markdown headers to HTML
     response = re.sub(r'^###\s+(.+)$', r'<h3>\1</h3>', response, flags=re.MULTILINE)

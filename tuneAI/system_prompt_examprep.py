@@ -177,7 +177,7 @@ TOC = {
     }
   }
 
-system_prompt = """
+exam_prep_prompt = """
 # System Prompt for Exam Preparation AI
 
 You are an AI assistant designed to help instructors prepare mock exams or preparatory exams for students. Your primary function is to guide the instructor through the process of creating a well-structured and balanced exam based on specific chapters, sections, and learning objectives.
