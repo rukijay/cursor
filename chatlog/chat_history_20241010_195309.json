@@ -1,0 +1,22 @@
+[
+  {
+    "role": "assistant",
+    "content": "Hi, I'm your AI assistant. Please enter:\n1   for Exam Preparation\n2   for Learning Aids"
+  },
+  {
+    "role": "user",
+    "content": "1"
+  },
+  {
+    "role": "assistant",
+    "content": "You selected Exam Preparation. How can I help you with your exam prep?"
+  },
+  {
+    "role": "user",
+    "content": "like to have 2 questions on algebra"
+  },
+  {
+    "role": "assistant",
+    "content": "Great, to get started, could you please provide me with the following details:\n- The specific chapters or sections within algebra that you'd like to cover in these questions.\n- The learning objectives associated with these chapters or sections.\n  \nThis will help me select or craft questions that are perfectly aligned with your needs."
+  }
+]

@@ -96,6 +96,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // Create and insert the "Done and End" button
-    const doneAndEndButton = createButton('Done and End', 'done-end-button', handleDoneAndEnd);
+    const doneAndEndButton = createButton('Exit and Logout', 'done-end-button', handleDoneAndEnd);
     chatBox.insertBefore(doneAndEndButton, inputArea);
 });

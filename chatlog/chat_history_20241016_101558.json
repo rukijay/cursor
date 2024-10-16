@@ -1,0 +1,14 @@
+[
+  {
+    "role": "assistant",
+    "content": "Hi, I'm your AI assistant. Please enter:\n1   for Exam Preparation\n2   for Learning Aids"
+  },
+  {
+    "role": "user",
+    "content": "2"
+  },
+  {
+    "role": "assistant",
+    "content": "You selected Learning Aids. How can I help you with your learning?"
+  }
+]
