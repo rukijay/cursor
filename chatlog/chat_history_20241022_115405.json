@@ -1,0 +1,22 @@
+[
+  {
+    "role": "assistant",
+    "content": "Hi, I'm your AI assistant. Please enter:\n1   for Exam Preparation\n2   for Learning Aids"
+  },
+  {
+    "role": "user",
+    "content": "2"
+  },
+  {
+    "role": "assistant",
+    "content": "You selected Learning Aids. How can I help you with your learning?"
+  },
+  {
+    "role": "user",
+    "content": "web referece for basic algebra"
+  },
+  {
+    "role": "assistant",
+    "content": "I'm sorry, but I'm currently experiencing high traffic. Please try again later."
+  }
+]

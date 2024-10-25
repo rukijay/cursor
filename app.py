@@ -21,7 +21,15 @@ def serve_static(path):
 @app.route('/api/chat', methods=['POST'])
 def chat():
     user_message = request.json['message']
-    ai_response = chat_session.chat(user_message)
+    
+    # Check if the user clicked the [exit and done] button
+    if user_message == "[exit and done]":
+        # Impersonate the user to send "exit" to the LLM
+        ai_response = chat_session.chat("exit")
+    else:
+        # Normal chat flow
+        ai_response = chat_session.chat(user_message)
+    
     processed_response = process_response(ai_response)
     return jsonify({'response': processed_response})
 

@@ -13,17 +13,17 @@ document.addEventListener('DOMContentLoaded', () => {
         chatMessages.scrollTop = chatMessages.scrollHeight;
     }
 
-    async function sendMessage() {
-        const message = userInput.value.trim();
-        if (message) {
-            addMessage(message, true);
-            userInput.value = '';
+    async function sendMessage(message = null) {
+        const messageToSend = message || userInput.value.trim();
+        if (messageToSend) {
+            addMessage(messageToSend, true);
+            if (!message) userInput.value = '';
 
             try {
                 const response = await fetchWithErrorHandling('/api/chat', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ message: message }),
+                    body: JSON.stringify({ message: messageToSend }),
                 });
                 addMessage(response.response);
             } catch (error) {
@@ -35,6 +35,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     async function handleDoneAndEnd() {
         console.log("Done and End button clicked");
+        
+        // Send "exit" message to the AI
+        await sendMessage("[exit and done]");
+
         try {
             const messages = Array.from(chatMessages.children).map(msg => ({
                 content: msg.textContent,
