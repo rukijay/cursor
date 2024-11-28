@@ -92,9 +92,14 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // Event listeners
-    sendButton.addEventListener('click', sendMessage);
+    sendButton.addEventListener('click', (e) => {
+        e.preventDefault();
+        sendMessage();
+    });
+    
     userInput.addEventListener('keypress', (e) => {
         if (e.key === 'Enter') {
+            e.preventDefault();
             sendMessage();
         }
     });

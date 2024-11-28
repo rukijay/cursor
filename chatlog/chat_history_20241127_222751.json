@@ -1,0 +1,22 @@
+[
+  {
+    "role": "assistant",
+    "content": "Hi, I'm your AI assistant. Please enter:\n1   for Exam Preparation\n2   for Learning Aids"
+  },
+  {
+    "role": "user",
+    "content": "2"
+  },
+  {
+    "role": "assistant",
+    "content": "You selected Learning Aids. How can I help you with your learning?"
+  },
+  {
+    "role": "user",
+    "content": "{'isTrusted': True}"
+  },
+  {
+    "role": "assistant",
+    "content": "It seems like there might have been an error in your response. Could you please provide specific details about the learning challenges your students are facing? This will help me recommend the most appropriate resources to support their learning needs."
+  }
+]

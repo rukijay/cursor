@@ -18,5 +18,25 @@
   {
     "timestamp": "2024-10-16T14:51:30.109370",
     "event": "Session ended"
+  },
+  {
+    "timestamp": "2024-11-27T11:16:34.309260",
+    "event": "Session ended"
+  },
+  {
+    "timestamp": "2024-11-27T18:55:10.271230",
+    "event": "Session ended"
+  },
+  {
+    "timestamp": "2024-11-27T19:15:51.740266",
+    "event": "Session ended"
+  },
+  {
+    "timestamp": "2024-11-27T22:27:51.662813",
+    "event": "Session ended"
+  },
+  {
+    "timestamp": "2024-11-27T22:33:52.796078",
+    "event": "Session ended"
   }
 ]

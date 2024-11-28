@@ -20,7 +20,17 @@ def serve_static(path):
 
 @app.route('/api/chat', methods=['POST'])
 def chat():
-    user_message = request.json['message']
+    data = request.json
+    
+    # Ensure we're getting a valid message string
+    if not isinstance(data, dict) or 'message' not in data:
+        return jsonify({'error': 'Invalid message format'}), 400
+        
+    user_message = str(data['message'])
+    
+    # Check if the message is just an event object
+    if user_message.startswith('[object') and user_message.endswith(']'):
+        return jsonify({'error': 'Invalid message content'}), 400
     
     # Check if the user clicked the [exit and done] button
     if user_message == "[exit and done]":
